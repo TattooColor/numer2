@@ -8,6 +8,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import axios from "axios";
+
 const Parser = require('expr-eval').Parser;
 
 
@@ -19,8 +21,22 @@ class Falseposition extends React.Component
         super(props);
         this.state = {XL:'',XR:'',ErrorApox:'',func:'',Arr:[]}
         this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)    
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.componantDidMount = this.componantDidMount.bind(this) 
     }
+	
+		componantDidMount(){
+      axios.get('http://localhost:3800/falseposition')
+      .then(res => {
+        const data = res.data
+        console.log(data)
+        this.setState({XL:(res.data[0].XL)})
+        this.setState({XR:(res.data[0].XR)})
+        this.setState({ErrorApox:(res.data[0].Errorapox)})
+        this.setState({Funct:(res.data[0].funct)})
+        console.log("XL: "+res.data[0].XL)
+    })
+  }
 
     FalsePositionCalcFunction(XL,XR,ErrorApox,Funct)
     {
@@ -121,8 +137,9 @@ class Falseposition extends React.Component
     render(){
         return(
           <div>
-            <form onSubmit={this.handleSubmit}>
+            <form >
             <div>
+              {JSON.stringify()}
                 <h1 className="h1">&emsp;False-position Method&emsp;</h1>
               <label htmlFor='XL' className="XLtext">&emsp;XL :&emsp;</label>
               <input
@@ -166,9 +183,10 @@ class Falseposition extends React.Component
             </div>
             <p></p>
             <div>
-            &emsp;<button className="hbutton">Calculate</button>
+            &emsp;<button className="hbutton" onClick={this.handleSubmit}>Calculate</button>
             </div>
           </form>
+          <button className="hbutton" onClick={this.componantDidMount}>API</button>
           </div>
         )
       }

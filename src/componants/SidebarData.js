@@ -174,5 +174,29 @@ export const SidebarData = [
       },
     ]
   },
-  
+  {
+    title: 'Regression Interpolation',
+    path: '/leastsquaresregression',
+    icon: <AiIcons.AiFillFileText />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Linear Regression',
+        path: '/leastsquaresregression/regressionlinear',
+        icon: <IoIcons.IoIosPaper />,
+      },
+      {
+        title: 'Quadratic Regression',
+        path: '/leastsquaresregression/regressionquadratic',
+        icon: <IoIcons.IoIosPaper />,
+      },
+      {
+        title: 'Polynomial Regression',
+        path: '/leastsquaresregression/regressionpolynomial',
+        icon: <IoIcons.IoIosPaper />
+      },
+    ]
+  },
 ];

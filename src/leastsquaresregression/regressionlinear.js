@@ -1,9 +1,7 @@
 import { render } from "@testing-library/react";
-import React from 'react'
-const Parser = require('expr-eval').Parser;
+import React,{ Component } from 'react'
 
-
-class Bisection extends React.Component
+class Regressionlinear extends React.Component
 {
 
     constructor(props)
@@ -14,20 +12,16 @@ class Bisection extends React.Component
         this.handleSubmit = this.handleSubmit.bind(this)    
     }
 
-    BisectionCalcFunction(XL,XR,ErrorApox,Funct)
+    RegressionlinearCalcFunction(XL,XR,ErrorApox,Funct)
     {
-        const parser = new Parser();
-        function fx(x)
-        {
-            let expr = parser.parse(Funct)
-            console.log("fx = "+expr.evaluate({ x: (x) }))
-            return expr.evaluate({ x: (x) })
-        }
+        
     }
+
+
     handleSubmit(event){
         const {XL,XR,ErrorApox,Funct} = this.state
        
-        const xm = this.BisectionCalcFunction(XL,XR,ErrorApox,Funct)
+        const xm = this.FalsePositionCalcFunction(XL,XR,ErrorApox,Funct)
         event.preventDefault()
         console.log("XL = "+XL)   //console log for debugging
         console.log("XR = "+XR)
@@ -48,7 +42,7 @@ class Bisection extends React.Component
           <div>
             <form onSubmit={this.handleSubmit}>
             <div>
-                <h1 className="h1">&emsp;Bisection Method&emsp;</h1>
+                <h1 className="h1">&emsp;False-position Method&emsp;</h1>
               <label htmlFor='XL' className="XLtext">&emsp;XL :&emsp;</label>
               <input
                 className="XLfield"
@@ -57,6 +51,24 @@ class Bisection extends React.Component
                 value = {this.state.XL}
                 onChange={this.handleChange}
                 size='16'
+              />
+              <label htmlFor='XR' className="XRtext" >&emsp;XR :&emsp;</label>
+              <input
+                className="XRfield"
+                name='XR'
+                placeholder='XR'
+                value={this.state.XR}
+                onChange={this.handleChange}
+                size='16'
+              />
+              <label htmlFor='ErrorApox' className="Errortext">&emsp;Error :&emsp;</label>
+              <input
+                className="Errorfield"
+                name='ErrorApox'
+                placeholder='ErrorApox'
+                value={this.state.ErrorApox}
+                onChange={this.handleChange}
+                size='17'
               />
               </div>
               <p></p>
@@ -81,4 +93,4 @@ class Bisection extends React.Component
       }
     }
 
-export default Bisection
+export default Regressionlinear

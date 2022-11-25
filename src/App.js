@@ -25,6 +25,7 @@ import Lagrangepolynomial from './lagrangeinterpolation/lagrangepolynomial';
 import Splinelinear from './splineinterpolation/splinelinear';
 import Splinequadratic from './splineinterpolation/splinequadratic';
 import Cubicspline from './splineinterpolation/cubicspline';
+import Regressionlinear from './leastsquaresregression/regressionlinear';
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
         <Route path='/splineinterpolation/splinelinear' element={<Splinelinear/>} />
         <Route path='/splineinterpolation/splinequadratic' element={<Splinequadratic/>} />
         <Route path='/splineinterpolation/cubicspline' element={<Cubicspline/>} />
+        <Route path='/leastsquaresregression/regressionlinear' element={<Regressionlinear/>} />
       </Routes>
     </Router>
   );
