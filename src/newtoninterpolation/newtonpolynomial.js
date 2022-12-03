@@ -90,9 +90,9 @@ class Newtonpolynomial extends React.Component
         <Table sx={{ minWidth: 300 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>point</TableCell>
-              <TableCell align="right">x</TableCell>
-              <TableCell align="right">y</TableCell>
+              <TableCell align="center">point</TableCell>
+              <TableCell align="center">x</TableCell>
+              <TableCell align="center">y</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -101,11 +101,11 @@ class Newtonpolynomial extends React.Component
                 key={arr.point}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
-                <TableCell component="th" scope="row">
+                <TableCell component="th" scope="row" align="center">
                   {arr.point}
                 </TableCell>
-                <TableCell align="right">{arr.x}</TableCell>
-                <TableCell align="right">{arr.y}</TableCell>
+                <TableCell align="center">{arr.x}</TableCell>
+                <TableCell align="center">{arr.y}</TableCell>
               </TableRow>
             ))}
           </TableBody>

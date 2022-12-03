@@ -1,20 +1,26 @@
 import { render } from "@testing-library/react";
 import React from 'react'
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 const Parser = require('expr-eval').Parser;
 
 
 class Bisection extends React.Component
 {
-
     constructor(props)
     {
         super(props);
-        this.state = {XL:'',XR:'',ErrorApox:'',func:'',Arr:[]}
+        this.state = {XL:'',func:''}
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)    
     }
 
-    BisectionCalcFunction(XL,XR,ErrorApox,Funct)
+    BisectionCalcFunction(XL,Funct)
     {
         const parser = new Parser();
         function fx(x)
@@ -23,26 +29,51 @@ class Bisection extends React.Component
             console.log("fx = "+expr.evaluate({ x: (x) }))
             return expr.evaluate({ x: (x) })
         }
+      var xl = parseInt(XL);
+      var arr = []
+      var mz
+      var i;
+      for(i=1;i<=xl;i++){
+        mz = fx(i)
+        arr[i] = ({x:i,y:mz})
+        //render(arr[i].x+": "+arr[i].y)
+      }
+      console.log(arr);
+      render(
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 300 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">X</TableCell>
+              <TableCell align="center">Y</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {arr.map((arr) => (
+              <TableRow
+                key={arr.x}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row" align="center">
+                  {arr.x}
+                </TableCell>
+                <TableCell align="center">{arr.y}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      )
+
     }
     handleSubmit(event){
-        const {XL,XR,ErrorApox,Funct} = this.state
-       
-        const xm = this.BisectionCalcFunction(XL,XR,ErrorApox,Funct)
+        const {XL,Funct} = this.state
+        const xm = this.BisectionCalcFunction(XL,Funct)
         event.preventDefault()
-        console.log("XL = "+XL)   //console log for debugging
-        console.log("XR = "+XR)
-        console.log("Function = "+Funct)
-        console.log("Errorapox = "+ErrorApox)
-        render(xm) //same here at line 53 i literally stuck at re-rendering
-       
-
     }
-
     handleChange(event){
       this.setState({[event.target.name] : event.target.value});
-      this.setState({Arr:[]});
     }
-    
     render(){
         return(
           <div>

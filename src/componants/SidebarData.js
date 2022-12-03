@@ -62,41 +62,6 @@ export const SidebarData = [
         path: '/linearequations/gausselimination',
         icon: <IoIcons.IoIosPaper />,
       },
-      {
-        title: 'Gauss-Jordan Method',
-        path: '/linearequations/gaussjordan',
-        icon: <IoIcons.IoIosPaper />
-      },
-      {
-        title: 'Matrix Inversion Method',
-        path: '/linearequations/matrixinversion',
-        icon: <IoIcons.IoIosPaper />
-      },
-      {
-        title: 'LU Decomposion Method',
-        path: '/linearequations/ludecomposion',
-        icon: <IoIcons.IoIosPaper />
-      },
-      {
-        title: 'Cholesky Decomposition Method',
-        path: '/linearequations/cholesky',
-        icon: <IoIcons.IoIosPaper />
-      },
-      {
-        title: 'Jacobi Iteration Method',
-        path: '/linearequations/jacobi',
-        icon: <IoIcons.IoIosPaper />
-      },
-      {
-        title: 'Gauss Seidel Iteration Method',
-        path: '/linearequations/gaussseidel',
-        icon: <IoIcons.IoIosPaper />
-      },
-      {
-        title: 'Coniugate Gradient Method',
-        path: '/linearequations/coniugate',
-        icon: <IoIcons.IoIosPaper />
-      },
     ]
   },
   {
@@ -170,31 +135,6 @@ export const SidebarData = [
       {
         title: 'Cubic Spline',
         path: '/splineinterpolation/cubicspline',
-        icon: <IoIcons.IoIosPaper />
-      },
-    ]
-  },
-  {
-    title: 'Regression Interpolation',
-    path: '/leastsquaresregression',
-    icon: <AiIcons.AiFillFileText />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'Linear Regression',
-        path: '/leastsquaresregression/regressionlinear',
-        icon: <IoIcons.IoIosPaper />,
-      },
-      {
-        title: 'Quadratic Regression',
-        path: '/leastsquaresregression/regressionquadratic',
-        icon: <IoIcons.IoIosPaper />,
-      },
-      {
-        title: 'Polynomial Regression',
-        path: '/leastsquaresregression/regressionpolynomial',
         icon: <IoIcons.IoIosPaper />
       },
     ]
